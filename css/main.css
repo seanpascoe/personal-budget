@@ -1,0 +1,38 @@
+#budget {
+  color: #424242;
+  font-size: 3.5em;
+  font-weight: bold;
+  display: inline-block;
+  border-radius: 25px;
+  padding: 5px 20px
+}
+
+table td {
+  font-size: 1.5em;
+}
+
+.remove {
+  cursor: pointer;
+}
+
+label[for="debit_trans"],
+label[for="credit_trans"] {
+  top: 0;
+}
+
+#deborcred {
+  margin-top: 0;
+  padding-right: 25px;
+}
+
+#addTrans {
+  padding: 0 1rem
+}
+
+tr.credit {
+  background-color: #e8f5e9;
+}
+
+tr.debit {
+  background-color: #ffebee;
+}
