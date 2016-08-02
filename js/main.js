@@ -5,7 +5,7 @@ $(document).ready(function() {
   //handle initial budget submission
   $('#submit').click(function() {
     $('#start').hide();
-    var startBudget = $('#cash').val();
+    var startBudget = parseFloat($('#cash').val());
     updateBudget(startBudget, "credit");
     $('#app').show();
   });
@@ -15,6 +15,7 @@ $(document).ready(function() {
     e.preventDefault();
     var transName = $('#trans_name').val();
     var transAmount = $('#trans_amount').val();
+    transAmount = parseFloat(transAmount).toFixed(2);
     var debitEl = document.getElementById('debit_trans');
     var creditEl = document.getElementById('credit_trans');
 
@@ -22,7 +23,6 @@ $(document).ready(function() {
 
       var type = debitEl.checked ? "debit" : "credit";
 
-      console.log(type);
 
       //add transaction to ledger
       var newEntry = `
@@ -48,15 +48,15 @@ $(document).ready(function() {
   });
 
   function updateBudget(amount, type) {
-    budgetAmount = Number(budgetAmount);
-    amount = Number(amount);
+    budgetAmount = parseFloat(budgetAmount);
+    amount = parseFloat(amount);
 
     if (type === "debit") {
       budgetAmount -= amount;
-      $('#budget').html("$" + budgetAmount);
+      $('#budget').html("$" + budgetAmount.toFixed(2));
     } else if (type === "credit") {
       budgetAmount += amount;
-      $('#budget').html("$" + budgetAmount);
+      $('#budget').html("$" + budgetAmount.toFixed(2));
     }
 
     if (budgetAmount < 0) {
