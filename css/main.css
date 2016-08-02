@@ -26,7 +26,8 @@ label[for="credit_trans"] {
 }
 
 #addTrans {
-  padding: 0 1rem
+  padding: 0 1rem;
+  margin-top: 10px;
 }
 
 tr.credit {
@@ -35,4 +36,11 @@ tr.credit {
 
 tr.debit {
   background-color: #ffebee;
+}
+
+.budget-section,
+.transaction-section,
+.ledger-section {
+  margin-top: 50px;
+  margin-bottom: 30px;
 }

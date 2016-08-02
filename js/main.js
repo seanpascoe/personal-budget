@@ -27,9 +27,9 @@ $(document).ready(function() {
       //add transaction to ledger
       var newEntry = `
       <tr class="${type}">
-        <td>${transName}</td>
-        <td class="traxAmount">${transAmount}</td>
-        <td><i class="remove medium material-icons">delete_forever</i></td>
+        <td><span class="thin">${type === "debit" ? "(-)" : "(+)"}</span> ${transName}</td>
+        <td class="traxAmount">\$${transAmount}</td>
+        <td><i class="remove material-icons">delete_forever</i></td>
       </tr>
       `
       $('#transactions').append(newEntry);
@@ -70,7 +70,7 @@ $(document).ready(function() {
   $(document).on('click', '.remove', function(e) {
     var trEl = $(e.target).parents('tr')
     var traxType = trEl.attr('class') === "credit" ? "debit" : "credit";
-    var traxAmount = trEl.children('.traxAmount').text();
+    var traxAmount = trEl.children('.traxAmount').text().replace("$", "");
     updateBudget(traxAmount, traxType);
     trEl.remove();
   })
